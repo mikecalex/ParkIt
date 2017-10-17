@@ -8,7 +8,18 @@ feature "visitor sees list of parks" do
     visit parks_path
 
     expect(page).to have_content "Parks"
+    expect(page).to have_link "Boston Common"
+    expect(page).to have_link "Cheese Park"
+  end
+
+  scenario "clicks link to show page" do
+    boston_common = Park.create(name: "Boston Common", address: "139 Tremont St.", city: "Boston", state: "MA", zip: "02111", category: "State")
+    cheese_park = Park.create(name: "Cheese Park", address: "139 Cheesemont St.", city: "Boston", state: "MA", zip: "02111", category: "Cheese")
+
+    visit parks_path
+
+    click_link "Boston Common"
+
     expect(page).to have_content "Boston Common"
-    expect(page).to have_content "Cheese Park"
   end
 end
