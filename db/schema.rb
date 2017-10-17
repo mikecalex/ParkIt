@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171017153755) do
+=======
+ActiveRecord::Schema.define(version: 20171017182408) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +52,15 @@ ActiveRecord::Schema.define(version: 20171017153755) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
 
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating", null: false
+    t.text "body"
+    t.bigint "park_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["park_id"], name: "index_reviews_on_park_id"
   end
 
 end
