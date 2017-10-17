@@ -1,5 +1,5 @@
 class Park < ApplicationRecord
-  # has_many :reviews
+  has_many :reviews
   # has_many :park_amenities
   # has_many :amenities, through: :park_amenities
   # belongs_to :user

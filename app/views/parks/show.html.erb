@@ -6,3 +6,18 @@
   <%= @park.address %><br>
   <%= "#{@park.city}, #{@park.state} #{@park.zip}" %>
 </p>
+
+<% unless @park.reviews.empty? %>
+  <h3>Reviews:</h3>
+  <hr>
+  <% @park.reviews.each do |review| %>
+    <% plurality = "" %>
+    <% if review.rating > 1 %>
+    <% plurality = "s" %>
+    <% end %>
+    <p>Rating: <%= review.rating %> star<%= plurality %></p>
+    <p>Created on: <%= review.created_at.strftime("%B %d %Y") %></p>
+    <p>Review: <%= review.body %></p>
+    <hr>
+  <% end %>
+<% end %>
