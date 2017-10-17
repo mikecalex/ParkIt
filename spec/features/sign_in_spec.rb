@@ -4,7 +4,7 @@ feature 'sign up' do
 
   scenario 'specifying valid and required information' do
     visit root_path
-    click_link 'Sign up'
+    click_link 'Sign Up'
     fill_in 'First Name', with: 'Jon'
     fill_in 'Last Name', with: 'Smith'
     fill_in 'Email', with: 'user@example.com'
@@ -21,7 +21,7 @@ feature 'sign up' do
     click_link 'Sign Up'
     click_button 'Sign Up'
 
-    expect(page).to have_content("can't be blanck")
+    expect(page).to have_content("can't be blank")
     expect(page).to_not have_content("Sign Out")
   end
 
