@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171018162216) do
+=======
+ActiveRecord::Schema.define(version: 20171018145848) do
+>>>>>>> 7ea39f2c4b5de3fbea4ee66552ae76a2e7069e56
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "amenities", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "park_amenities", force: :cascade do |t|
+    t.bigint "park_id", null: false
+    t.bigint "amenity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["amenity_id"], name: "index_park_amenities_on_amenity_id"
+    t.index ["park_id"], name: "index_park_amenities_on_park_id"
+  end
 
   create_table "parks", force: :cascade do |t|
     t.string "name", null: false
@@ -27,6 +46,7 @@ ActiveRecord::Schema.define(version: 20171018162216) do
     t.integer "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -35,6 +55,7 @@ ActiveRecord::Schema.define(version: 20171018162216) do
     t.bigint "park_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["park_id"], name: "index_reviews_on_park_id"
   end
 

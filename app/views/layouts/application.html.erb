@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html>
 <head>
   <title>parKit</title>
@@ -17,6 +18,27 @@
           <li><%= link_to "Admin Section", admin_path %></li>
         <% end %>
       <%- else -%>
+=======
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <nav>
+      <ul>
+        <%- if user_signed_in? -%>
+          <li><%= link_to 'Sign Out', '#' %></li>
+        <%- else -%>
+>>>>>>> 7ea39f2c4b5de3fbea4ee66552ae76a2e7069e56
           <li> <%= link_to 'Sign In', new_user_session_path %></li>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
         <%- end -%>
@@ -28,8 +50,15 @@
     <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: "callout #{name}" %>
     <% end %>
+<<<<<<< HEAD
   </div>
   <% end %>
   <%= yield %>
 </body>
+=======
+
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
+>>>>>>> 7ea39f2c4b5de3fbea4ee66552ae76a2e7069e56
 </html>
