@@ -2,8 +2,9 @@ require "rails_helper"
 
 feature "visitor sees list of parks" do
   scenario "sees park list" do
-    boston_common = Park.create(name: "Boston Common", address: "139 Tremont St.", city: "Boston", state: "MA", zip: "02111", category: "State")
-    cheese_park = Park.create(name: "Cheese Park", address: "139 Cheesemont St.", city: "Boston", state: "MA", zip: "02111", category: "Cheese")
+    user1 = User.create(first_name: "Dave", last_name: "DiRico", email: "davidjdirico@gmail.com", password: "launchacademy")
+    boston_common = Park.create(user_id: user1.id, name: "Boston Common", address: "139 Tremont St.", city: "Boston", state: "MA", zip: "02111", category: "State")
+    cheese_park = Park.create(user_id: user1.id, name: "Cheese Park", address: "139 Cheesemont St.", city: "Boston", state: "MA", zip: "02111", category: "Cheese")
 
     visit parks_path
 
@@ -13,8 +14,9 @@ feature "visitor sees list of parks" do
   end
 
   scenario "clicks link to show page" do
-    boston_common = Park.create(name: "Boston Common", address: "139 Tremont St.", city: "Boston", state: "MA", zip: "02111", category: "State")
-    cheese_park = Park.create(name: "Cheese Park", address: "139 Cheesemont St.", city: "Boston", state: "MA", zip: "02111", category: "Cheese")
+    user1 = User.create(first_name: "Dave", last_name: "DiRico", email: "davidjdirico@gmail.com", password: "launchacademy")
+    boston_common = Park.create(user_id: user1.id, name: "Boston Common", address: "139 Tremont St.", city: "Boston", state: "MA", zip: "02111", category: "State")
+    cheese_park = Park.create(user_id: user1.id, name: "Cheese Park", address: "139 Cheesemont St.", city: "Boston", state: "MA", zip: "02111", category: "Cheese")
 
     visit parks_path
 
