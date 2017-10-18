@@ -1,5 +1,6 @@
 source 'https://rubygems.org/'
 
+gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
