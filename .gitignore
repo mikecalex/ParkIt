@@ -24,3 +24,5 @@
 /public/packs
 /public/packs-test
 /node_modules
+/app/assets/javascripts/bundle.js
+/react/coverage
