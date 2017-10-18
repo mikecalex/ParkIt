@@ -2,6 +2,12 @@
 
 <h3><%= @park.category %> Park</h3>
 
+<ul>
+  <% @park.amenities.each do |amenity| %>
+    <li> <%= amenity.name %> </li>
+  <% end %>
+</ul>
+
 <p>
   <%= @park.address %><br>
   <%= "#{@park.city}, #{@park.state} #{@park.zip}" %>
