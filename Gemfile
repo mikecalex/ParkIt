@@ -10,6 +10,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
 gem 'webpacker'
+gem "fog-aws"
+gem "fog"
 
 
 group :development do
@@ -27,6 +29,10 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
+end
+
+group :development, :test do
+  gem "dotenv-rails"
 end
 
 group :production do
