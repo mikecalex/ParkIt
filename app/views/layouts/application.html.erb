@@ -29,27 +29,16 @@
   </nav>
 
   <% if flash.any? %>
-<<<<<<< HEAD
     <div class="flash">
       <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: "callout #{name}" %>
       <% end %>
     </div>
   <% end %>
-=======
-  <div class="flash">
-    <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: "callout #{name}" %>
-    <% end %>
->>>>>>> 66bb705d1a7684245dc73ff2174a876927003d65
-
 
     <%= yield %>
     <%= javascript_include_tag "application" %>
-<<<<<<< HEAD
 
-=======
->>>>>>> 66bb705d1a7684245dc73ff2174a876927003d65
   </body>
 
 </html>
