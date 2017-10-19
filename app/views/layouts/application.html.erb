@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
@@ -13,16 +17,28 @@
 
   <body>
 
-    <nav>
-      <ul>
-        <%- if user_signed_in? -%>
-          <li><%= link_to 'Sign Out', '#' %></li>
-        <%- else -%>
-          <li> <%= link_to 'Sign In', new_user_session_path %></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <%- end -%>
-      </ul>
-    </nav>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text">ParkIt</li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li>
+          <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
+          <ul class="menu vertical">
+            <%- if user_signed_in? -%>
+              <li><%= link_to 'Sign Out', '#' %></li>
+              <%- else -%>
+              <li> <%= link_to 'Sign In', new_user_session_path %></li>
+              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+              <%- end -%>
+          </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <% if flash.any? %>
     <div class="flash">
