@@ -25,20 +25,30 @@
         </ul>
       </div>
       <div class="top-bar-right">
-        <%- if user_signed_in? -%>
-        <ul class="menu_text">
-          <% unless current_user.profile_photo.file.nil? %>
-          <div id="profile-photo-container">
-            <li id="profile-photo"><%= image_tag current_user.profile_photo.url, { size: "45x45" } %></li>
-          </div>
+        <div class="foo">
+        <ul class="menu">
+          <%- if user_signed_in? -%>
+          <li class="menu_text">
+            <% unless current_user.profile_photo.file.nil? %>
+            <div id="profile-photo-container">
+              <li id="profile-photo"><%= image_tag current_user.profile_photo.url, { size: "45x45" } %></li>
+            </div>
+            <% end %>
+          </li>
+          </ul>
           <% end %>
-        </ul>
-        <% end %>
-
+        </div>
+        <div class="bar">
           <a href="#" data-options="align:left" data-dropdown="drop"><i class="fa fa-bars" aria-hidden="true"></i></a>
           <ul id="drop" class="tiny f-dropdown" data-dropdown-content>
             <%- if user_signed_in? -%>
               <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+<<<<<<< HEAD
+=======
+              <% unless current_user.profile_photo.file.nil? %>
+
+              <% end %>
+>>>>>>> 7c92870deed9b25b36a62e1cb3c00cea47b1c49c
               <% if current_user.admin? %>
                 <li><%= link_to "Admin Section", admin_path %></li>
               <% end %>
@@ -47,7 +57,7 @@
               <li><%= link_to 'Sign Up', new_user_registration_path %></li>
               <%- end -%>
           </ul>
-
+        </div>
       </div>
     </div>
       <% if flash.any? %>

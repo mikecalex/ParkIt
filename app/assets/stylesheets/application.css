@@ -18,7 +18,12 @@
 .top-bar-right i{
   font-size: 34px;
 }
-
+.foo{
+  padding-right: 40px;
+}
+.bar{
+  font-size: 34px;
+}
 .top-bar{
   background-color: #305e4a;
   height: auto;
