@@ -18,7 +18,6 @@
 
   <body>
 
-<<<<<<< HEAD
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu">
@@ -31,7 +30,10 @@
           <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
           <ul class="menu vertical">
             <%- if user_signed_in? -%>
-              <li><%= link_to 'Sign Out', '#' %></li>
+              <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+              <% if current_user.admin? %>
+                <li><%= link_to "Admin Section", admin_path %></li>
+              <% end %>
               <%- else -%>
               <li> <%= link_to 'Sign In', new_user_session_path %></li>
               <li><%= link_to 'Sign Up', new_user_registration_path %></li>
@@ -41,23 +43,7 @@
         </ul>
       </div>
     </div>
-=======
-    <nav>
-      <ul>
-        <%- if user_signed_in? -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <% if current_user.admin? %>
-            <li><%= link_to "Admin Section", admin_path %></li>
-          <% end %>
-        <%- else -%>
-          <li> <%= link_to 'Sign In', new_user_session_path %></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <%- end -%>
-    </ul>
-  </nav>
-
-  <% if flash.any? %>
->>>>>>> ca8588c4dcb87759bcb48561f4f5c370bd0c0cc2
+      <% if flash.any? %>
 
     <div class="flash">
       <% flash.each do |name, msg| %>
