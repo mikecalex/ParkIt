@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -17,6 +18,7 @@
 
   <body>
 
+<<<<<<< HEAD
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu">
@@ -39,16 +41,35 @@
         </ul>
       </div>
     </div>
+=======
+    <nav>
+      <ul>
+        <%- if user_signed_in? -%>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <% if current_user.admin? %>
+            <li><%= link_to "Admin Section", admin_path %></li>
+          <% end %>
+        <%- else -%>
+          <li> <%= link_to 'Sign In', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <%- end -%>
+    </ul>
+  </nav>
 
-    <% if flash.any? %>
+  <% if flash.any? %>
+>>>>>>> ca8588c4dcb87759bcb48561f4f5c370bd0c0cc2
+
     <div class="flash">
       <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: "callout #{name}" %>
       <% end %>
     </div>
-    <% end %>
+  <% end %>
+
 
     <%= yield %>
     <%= javascript_include_tag "application" %>
+
   </body>
+
 </html>
