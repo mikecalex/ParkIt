@@ -15,3 +15,27 @@
  *= require foundation_and_overrides
 
  */
+.top-bar-right i{
+  font-size: 34px;
+}
+
+.top-bar{
+  background-color: #305e4a;
+  height: auto;
+}
+
+.top-bar ul{
+
+  background-color: #305e4a;
+}
+.menu .menu-text {
+  color: white;
+  font-size: 30px;
+}
+.top-bar a{
+  color: white;
+}
+
+.top-bar a:hover{
+  color: white;
+}
