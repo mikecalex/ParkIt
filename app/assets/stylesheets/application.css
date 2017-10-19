@@ -32,6 +32,10 @@
   color: white;
   font-size: 30px;
 }
-.dropdown.menu a{
+.top-bar a{
+  color: white;
+}
+
+.top-bar a:hover{
   color: white;
 }
