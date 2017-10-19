@@ -3,7 +3,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
@@ -14,6 +18,7 @@
 
   <body>
 
+<<<<<<< HEAD
     <nav>
       <ul>
         <%- if user_signed_in? -%>
@@ -34,6 +39,32 @@
     </nav>
 
   <% if flash.any? %>
+=======
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text">ParkIt</li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+
+          <a href="#" data-options="align:left" data-dropdown="drop"><i class="fa fa-bars" aria-hidden="true"></i></a>
+          <ul id="drop" class="tiny f-dropdown" data-dropdown-content>
+            <%- if user_signed_in? -%>
+              <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+              <% if current_user.admin? %>
+                <li><%= link_to "Admin Section", admin_path %></li>
+              <% end %>
+              <%- else -%>
+              <li> <%= link_to 'Sign In', new_user_session_path %></li>
+              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+              <%- end -%>
+          </ul>
+
+      </div>
+    </div>
+      <% if flash.any? %>
+>>>>>>> 150a1d26083a63e91a673c0a1489773dd5c51c6b
 
     <div class="flash">
       <% flash.each do |name, msg| %>
