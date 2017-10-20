@@ -9,7 +9,6 @@ class ParksContainer extends Component {
     }
   }
 
-
   componentDidMount() {
     fetch('api/v1/parks')
       .then(response => response.json())
@@ -20,17 +19,6 @@ class ParksContainer extends Component {
   }
 
   render() {
-    console.log(this.state)
-
-
-
-
-
-    // let rootDiv = document.getElementById("app");
-    // console.log(rootDiv);
-    // let parks = rootDiv.data.parks
-    // console.log(parks);
-
     return(
       <div>
         <h1>

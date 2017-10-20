@@ -2,6 +2,7 @@ var path = require('path');
 
 module.exports = function(config) {
   config.set({
+    autoWatch: true,
     // use the PhantomJS browser
     browsers: ['PhantomJS'],
 
@@ -55,7 +56,11 @@ module.exports = function(config) {
           },
 
           {
-            include: /\.json$/,
+            test: /\.json$/,
+            include: [
+              /node_modules/,
+              path.resolve(__dirname, '..')
+            ],
             loader: 'json-loader'
           }
         ]
