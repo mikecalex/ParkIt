@@ -1,10 +1,11 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ParksContainer from './containers/ParksContainer'
 
 $(function() {
   ReactDOM.render(
-    <h1>Boo yaa</h1>,
+    <ParksContainer />,
     document.getElementById('app')
   );
 });
