@@ -1,0 +1,17 @@
+
+
+<% if @parks.blank? %>
+  <h4>There are no parks containing the term <%= params[:search] %>.</h4>
+<% else %>
+  <% @parks.each do |park| %>
+    <h3><%= park.name %></h3>
+    <ul></br>
+      <%= park.address %></br>
+      <%= park.city %>, <%= park.state %> <%= park.zip %></br>
+      Type of park: <%= park.category %></br>
+      Description: <%= park.description %></br>
+    </ul>
+  <% end %>
+<% end %>
+
+</br><%= link_to 'Back', parks_path %>

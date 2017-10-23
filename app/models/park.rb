@@ -11,7 +11,11 @@ class Park < ApplicationRecord
   validates :zip, presence: true
   validates :category, presence: true
 
-  STATES = [
+  def self.search(search)
+    where("name ILIKE ? OR address ILIKE ? OR city ILIKE ? OR state ILIKE ? OR zip ILIKE ? OR category ILIKE ? OR description ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%, %#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+  end
+
+    STATES = [
     ["AK", "Alaska"],
     ["AL", "Alabama"],
     ["AR", "Arkansas"],

@@ -6,9 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user1 = User.create(first_name: "Dave", last_name: "DiRico", email: "davidjdirico@gmail.com", password: "launchacademy")
+user1 = User.create(first_name: "Dave", last_name: "DiRico", email: "sadasdafadfico@gmail.com", password: "launchacademy")
+user2 = User.create(first_name: "Mike", last_name: "Alexander", email: "mikecalex@gmail.com", password: "password")
 
-park1 = Park.create(user_id: user1.id, name: "Borderland State Park", address: "44 Grove St.", city: "Easton", state: "MA", zip: "20159", category: "state")
+park1 = Park.create(user_id: user1.id, name: "Borderland State Park", address: "44 Grove St.", city: "Easton", state: "MA", zip: "20159", category: "State")
+park2 = Park.create(user_id: user1.id, name: "Boston Common Park", address: "139 Tremont St.", city: "Boston", state: "MA", zip: "02111", category: "Other")
+park3 = Park.create(user_id: user2.id, name: "Grandfather Mtn State Park", address: "9872 North Carolina 105", city: "Banner Elk", state: "NC", zip: "28604", category: "State")
 
 amenities = Amenity.create([
     {name: "Camping Allowed"},
