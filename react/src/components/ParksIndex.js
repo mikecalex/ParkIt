@@ -2,7 +2,6 @@ import React from 'react';
 import ParkTile from './ParkTile'
 
 const ParksIndex = props => {
-
   let parks = props.parks.map(park => {
     return(
       <ParkTile
