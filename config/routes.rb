@@ -11,8 +11,12 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :parks, only: [:index]
+      resources :parks, only: [:index, :show]
     end
   end
-  
+
+  root 'parks#index'
+  # get "*path", to: 'parks#index'
+  get "*path", to: 'parks#index'
+  # resources :parks, only: [:index]
 end
