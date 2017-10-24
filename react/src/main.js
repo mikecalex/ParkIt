@@ -1,7 +1,8 @@
 import 'babel-polyfill';
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom';
-import ParksContainer from './containers/ParksContainer'
+import App from './App'
 
 $(function() {
   let appContainer = document.getElementById('app')
