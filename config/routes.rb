@@ -12,15 +12,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :parks, only: [:index, :show]
+      resources :votes, only: [:index]
     end
   end
 
   root 'parks#index'
-  # get "*path", to: 'parks#index'
   get "*path", to: 'parks#index'
-  # resources :parks, only: [:index]
-<<<<<<< HEAD
-=======
-
->>>>>>> 165d99e13407850504e882de8fdf5a5d40e2e703
 end

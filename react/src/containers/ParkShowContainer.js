@@ -15,7 +15,7 @@ class ParkShowContainer extends Component {
     fetch(`/api/v1/parks/${parkId}`)
       .then(response => response.json())
       .then(json => {
-        this.setState({ park: json.park, reviews: json.reviews })
+        this.setState({ park: json })
       });
   }
 
@@ -29,7 +29,7 @@ class ParkShowContainer extends Component {
         </div>
         <div>
           <ReviewsIndex
-            reviews={this.state.reviews}
+            reviews={this.state.park.reviews}
           />
         </div>
       </div>
