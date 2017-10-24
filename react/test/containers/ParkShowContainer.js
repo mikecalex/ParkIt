@@ -41,17 +41,4 @@ let responseBody = JSON.stringify(data);
 
       />);
   });
-
-  // it('should display the park\'s name', () => {
-  //   expect(wrapper.find('h1').length).toEqual(1)
-  // });
-
-  // it('should return true', () => {
-  //   expect(true).toEqual(true);
-  // });
-
-  // it('should render a ParksIndex Component', () => {
-  //   expect(wrapper.find(ParksTile).length).toEqual(1);
-  // });
-
 })
