@@ -4,8 +4,11 @@ import ReactDOM from 'react-dom';
 import ParksContainer from './containers/ParksContainer'
 
 $(function() {
-  ReactDOM.render(
-    <ParksContainer />,
-    document.getElementById('app')
-  );
+  let appContainer = document.getElementById('app')
+  if(appContainer) {
+    ReactDOM.render(
+      <ParksContainer />,
+      document.getElementById('app')
+    );
+  }
 });
