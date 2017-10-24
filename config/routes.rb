@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   # get "*path", to: 'parks#index'
   get "*path", to: 'parks#index'
   # resources :parks, only: [:index]
+<<<<<<< HEAD
+=======
+
+>>>>>>> 165d99e13407850504e882de8fdf5a5d40e2e703
 end
