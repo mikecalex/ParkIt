@@ -36,9 +36,6 @@ let responseBody = JSON.stringify(data);
 
     const spy = SpyOnProperty(this.props.match.params, 1, )
 
-
-
-
     wrapper = shallow(
       <ParkShowContainer
 
