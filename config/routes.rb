@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   end
 
   root 'parks#index'
+  # get "*path", to: 'parks#index'
   get "*path", to: 'parks#index'
+  # resources :parks, only: [:index]
 end

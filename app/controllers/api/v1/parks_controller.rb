@@ -4,6 +4,8 @@ class Api::V1::ParksController < ApplicationController
   end
 
   def show
-    render json: { park: Park.find(params[:id]) }
+    park = Park.find(params[:id])
+    render json: { park: park, reviews: park.reviews }
+    # render json: { reviews: Review.all }
   end
 end

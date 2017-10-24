@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
 import ParksContainer from './containers/ParksContainer'
 import ParkShowContainer from './containers/ParkShowContainer'
 

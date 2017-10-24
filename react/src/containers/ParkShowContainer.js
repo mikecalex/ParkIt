@@ -1,28 +1,37 @@
 import React, { Component } from 'react'
+import ReviewsIndex from './ReviewsIndex';
 
 class ParkShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      park: {}
+      park: {},
+      reviews: []
     }
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/api/v1/parks/2")
+    let parkId = this.props.match.params.id
+    fetch(`/api/v1/parks/${parkId}`)
       .then(response => response.json())
       .then(json => {
-        let park = json.park
-        this.setState({ park: park })
+        this.setState({ park: json.park, reviews: json.reviews })
       });
   }
 
 
   render() {
-    console.log(this.state.park)
-    return(
+     return(
       <div>
-        {this.state.park.name}
+        <div>
+          {this.state.park.name}
+          {this.state.park.address}
+        </div>
+        <div>
+          <ReviewsIndex
+            reviews={this.state.reviews}
+          />
+        </div>
       </div>
     )
   }
