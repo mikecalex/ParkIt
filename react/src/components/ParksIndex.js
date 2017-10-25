@@ -12,9 +12,8 @@ const ParksIndex = props => {
     )
   })
 
-
   return(
-    <ul>
+    <ul key={"park-listing"}>
       {parks}
     </ul>
   )
