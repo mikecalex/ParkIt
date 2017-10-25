@@ -2,7 +2,6 @@ import React from 'react';
 import ParkTile from './ParkTile'
 
 const ParksIndex = props => {
-
   let parks = props.parks.map(park => {
     return(
       <ParkTile
@@ -13,9 +12,8 @@ const ParksIndex = props => {
     )
   })
 
-
   return(
-    <ul>
+    <ul key={"park-listing"}>
       {parks}
     </ul>
   )

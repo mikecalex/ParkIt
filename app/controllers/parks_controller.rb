@@ -2,12 +2,12 @@ class ParksController < ApplicationController
   before_action :authorize_user, except: [:index, :show, :search]
 
   def index
-    @parks = Park.all
+    # @parks = Park.all
   end
 
-  def show
-    @park = Park.find(params[:id])
-  end
+  # def show
+    # @park = Park.find(params[:id])
+  # end
 
   def search
     if params[:search]
