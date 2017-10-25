@@ -13,7 +13,7 @@ gem 'webpacker'
 gem "fog-aws"
 gem "fog"
 gem "react_on_rails", '~> 7.0', '>= 7.0.4'
-
+gem "font-awesome-rails"
 
 group :development do
   gem 'listen', '~> 3.0.5'
