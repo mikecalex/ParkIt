@@ -5,10 +5,6 @@ class ParksController < ApplicationController
     @parks = Park.all
   end
 
-  def show
-    @park = Park.find(params[:id])
-  end
-
   def search
     if params[:search]
       @parks = Park.search(params[:search]).order("created_at DESC")
