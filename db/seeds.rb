@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user1 = User.create(first_name: "Dave", last_name: "DiRico", email: "davidjdirico@gmail.com", password: "launchacademy")
+user1 = User.create(first_name: "Dave", last_name: "DiRico", email: "davjdirico@gmail.com", password: "launchacademy")
 
 park1 = Park.create(user_id: user1.id, name: "Borderland State Park", address: "44 Grove St.", city: "Easton", state: "MA", zip: "20159", category: "state")
 
