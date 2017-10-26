@@ -28,8 +28,4 @@ describe('ParkFormContainer', () => {
   it('should render one input element', () => {
     expect(wrapper.find('input').length).toEqual(1);
   });
-
-  // it('should render a single input item', () => {
-  //   expect(wrapper.find('input').length).toEqual(1);
-  // });
 })

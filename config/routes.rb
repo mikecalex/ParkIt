@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       resources :parks, only: [:index, :show, :create]
     end
   end
-  
+
   root 'parks#index'
   get "*path", to: 'parks#index'
 
