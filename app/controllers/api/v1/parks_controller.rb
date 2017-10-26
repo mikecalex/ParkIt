@@ -1,4 +1,5 @@
 class Api::V1::ParksController < ApplicationController
+
   def index
     render json: { parks: Park.all, user: current_user }
   end
@@ -7,6 +8,7 @@ class Api::V1::ParksController < ApplicationController
     park = Park.find(params[:id])
     render json: { park: park, reviews: park.reviews }
   end
+
 
   def create
     park = Park.new(
@@ -21,6 +23,8 @@ class Api::V1::ParksController < ApplicationController
       size: params[:size].to_i,
       user_id: current_user.id
     )
+
+
     if park.save
       render json: { park: park }
     else
@@ -32,4 +36,5 @@ class Api::V1::ParksController < ApplicationController
     park = Park.find(params[:id])
     render json: { park: park, reviews: park.reviews }
   end
+
 end
