@@ -18,12 +18,13 @@ class ParksContainer extends Component {
   }
 
   getParks() {
-    fetch('api/v1/parks')
+    fetch('api/v1/parks', {headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin'})
       .then(response => response.json())
       .then(json => {
         let allParks = json.parks
         let currentUser = json.user
         this.setState({ parks: allParks, user: currentUser })
+        console.log(json)
       });
   }
 
@@ -31,7 +32,8 @@ class ParksContainer extends Component {
     fetch('api/v1/parks', {
       method: 'POST',
       body: JSON.stringify(formPayload),
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin'
     })
       .then(response => response.json())
       .then(json => {

@@ -1,11 +1,13 @@
 class Api::V1::ParksController < ApplicationController
   def index
-    render json: { parks: Park.all, user: current_user }
+    # render json: { parks: Park.all, user: current_user }
+    render json: Park.all
   end
 
   def show
-    park = Park.find(params[:id])
-    render json: { park: park, reviews: park.reviews }
+    # park = Park.find(params[:id])
+    # render json: { park: park, reviews: park.reviews, user: current_user }
+    render json: Park.find(params[:id]), serializer: ParkShowSerializer
   end
 
   def create

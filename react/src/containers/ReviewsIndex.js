@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 import ReviewTile from '../components/ReviewTile'
 
 const ReviewsIndex = props => {
