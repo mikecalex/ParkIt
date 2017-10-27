@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 import ReviewTile from '../components/ReviewTile'
 
 const ReviewsIndex = props => {
@@ -6,9 +6,8 @@ const ReviewsIndex = props => {
     return(
       <ReviewTile
         key={review.id}
-        id={review.id}
-        rating={review.rating}
-        body={review.body}
+        review={review}
+        handleClick={props.handleClick}
       />
     )
   })
