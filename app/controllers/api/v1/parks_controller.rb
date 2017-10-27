@@ -1,12 +1,12 @@
 class Api::V1::ParksController < ApplicationController
+  # serialization_scope :current_user
 
   def index
-    render json: { parks: Park.all, user: current_user }
+    render json: Park.all
   end
 
   def show
-    park = Park.find(params[:id])
-    render json: { park: park, reviews: park.reviews }
+    render json: Park.find(params[:id]), serializer: ParkShowSerializer
   end
 
 
@@ -31,10 +31,4 @@ class Api::V1::ParksController < ApplicationController
       render json: { error: park.errors.full_messages }, status: :unprocessable_entity
     end
   end
-
-  def show
-    park = Park.find(params[:id])
-    render json: { park: park, reviews: park.reviews }
-  end
-
 end

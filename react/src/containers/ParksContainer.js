@@ -6,8 +6,7 @@ class ParksContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      parks: [],
-      user: {}
+      parks: []
     }
     this.addNewPark = this.addNewPark.bind(this)
     this.getParks = this.getParks.bind(this)
@@ -23,10 +22,8 @@ class ParksContainer extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        console.log(json)
-        let allParks = json.parks;
-        let currentUser = json.user;
-        this.setState({ parks: allParks, user: currentUser });
+      let currentUser = json.user;
+        this.setState({ parks: json });
       });
   }
 
