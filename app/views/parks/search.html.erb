@@ -5,6 +5,7 @@
 <% else %>
   <% @parks.each do |park| %>
     <h3><%= park.name %></h3>
+    <img width="200px" height="200px" src=<%=park.photo_url %> />
     <ul></br>
       <%= park.address %></br>
       <%= park.city %>, <%= park.state %> <%= park.zip %></br>

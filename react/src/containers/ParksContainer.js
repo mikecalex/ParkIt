@@ -8,6 +8,7 @@ class ParksContainer extends Component {
     this.state = {
       parks: [],
       user: {}
+
     }
     this.addNewPark = this.addNewPark.bind(this)
     this.getParks = this.getParks.bind(this)
@@ -62,16 +63,24 @@ class ParksContainer extends Component {
 
     return(
       <div>
-        <h1>
-          Parks
-        </h1>
+        <div className="hero">
+          <img width="100%" className="hero-image" src="https://scontent.fbed1-2.fna.fbcdn.net/v/t1.0-9/22853052_10105640791126263_6186633322118658729_n.jpg?oh=65c315aa3fce121f51d13de3cdef4f35&oe=5A71BCD4"/>
+        </div>
+        <div className="row column text-center">
+          <h1>Parks</h1>
+
+        </div>
         <ParksIndex
           parks={this.state.parks}
         />
+        <div className="row small-up-2 large-up-2">
+          <div className="column">
         <ParkFormContainer
           user={this.state.user}
           handleSubmit={handleSubmit}
         />
+        </div>
+        </div>
       </div>
     )
   }

@@ -1,14 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"
-    <link rel="stylesheet" href="css/foundation.css">
-    <link rel="stylesheet" href="stylesheets/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font+Name">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "ParkIt" %></title>
 
@@ -18,60 +12,63 @@
   </head>
 
   <body>
-    <div class="top-bar" id="responsive-menu">
-      <div class="top-bar-left", "small-4 columns">
-        <ul class= "menu">
-          <li class="menu-text"><%= link_to 'ParkIt', parks_path %></li>
+    <div class="top-bar" data-topbar role="navigation">
+      <section class="top-bar-section">
+        <ul class= "left">
+          <li class="name"><%= link_to 'ParkIt', parks_path %></li>
         </ul>
-      </div>
-      <div class="top-bar-right", "small-4 columns">
-        <ul class="menu">
-          <li><%= form_tag(search_parks_path, method: :get) do %></li>
-          <li><%= search_field_tag :search, params[:search], placeholder: "Search Parks", required: "required"%></li>
-          <li><%= submit_tag "Search", class: "radius button", :name => nil %></li>
-          <li><% end %></li>
-        </ul>
-        <ul class="menu">
-          <li><%- if user_signed_in? -%></li>
-          <ul class="menu_text">
-            <li><% unless current_user.profile_photo.file.nil? %></li>
-            <div id="profile-photo-container">
-              <li id="profile-photo"><%= image_tag current_user.profile_photo.url, { size: "45x45" } %></li>
-            </div>
-            <li><% end %></li>
-          </ul>
-          <li><% end %></li>
-        </ul>
-        <a href='#' data-reveal-id="firstModal" class="icon" style="float: right;">&#9776;</a>
-        <div id="firstModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-          <h2 id="firstModalTitle">Welcome to ParkIt!</h2>
-            <%- if user_signed_in? -%>
-              <ul><%= link_to 'Update Account', edit_user_registration_path, method: :get %></ul>
-              <ul><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></ul>
-              <% if current_user.admin? %>
+
+        <ul class="right">
+          <li class="has-form">
+            <div class="row collapse">
+              <div class="large-8 small-9 columns">
+                <li><%= form_tag(search_parks_path, method: :get) do %></li>
+                <li><%= search_field_tag :search, params[:search], placeholder: "Search Parks", required: "required"%></li>
+                <li><%= submit_tag "Search", class: "radius button", :name => nil %></li>
+                <li><% end %></li>
+
+                <li><%- if user_signed_in? -%></li>
+                <ul class="menu_text">
+                  <li><% unless current_user.profile_photo.file.nil? %></li>
+                  <div id="profile-photo-container">
+                    <li id="profile-photo"><%= image_tag current_user.profile_photo.url, { size: "50x80" } %></li>
+                  </div>
+                  <li><% end %></li>
+                </ul>
+                <li><% end %></li>
+
+              <a href='#' data-reveal-id="firstModal" class="icon" style="float: right;">&#9776;</a>
+              <div id="firstModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+                <h2 id="firstModalTitle">Welcome to ParkIt!</h2>
+                <%- if user_signed_in? -%>
+                <ul><%= link_to 'Update Account', edit_user_registration_path, method: :get %></ul>
+                <ul><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></ul>
+                <% if current_user.admin? %>
                 <ul><%= link_to "Admin Section", admin_path %></ul>
-              <% end %>
-              <%- else -%>
-              <ul><%= link_to 'Sign In', new_user_session_path %></ul>
-              <ul><%= link_to 'Sign Up', new_user_registration_path %></ul>
-            <%- end -%>
-          <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-        </div>
-      </div>
-    </div>
+                <% end %>
+                <%- else -%>
+                <ul><%= link_to 'Sign In', new_user_session_path %></ul>
+                <ul><%= link_to 'Sign Up', new_user_registration_path %></ul>
+                <%- end -%>
+                <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+              </div>
+            </ul>
+            </div>
 
-      <% if flash.any? %>
+          </div>
 
-    <div class="flash">
-      <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: "callout #{name}" %>
-      <% end %>
-    </div>
-  <% end %>
-  
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
+          <% if flash.any? %>
+
+          <div class="flash">
+            <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, class: "callout #{name}" %>
+            <% end %>
+          </div>
+          <% end %>
+
+          <%= yield %>
+          <%= javascript_include_tag "application" %>
+          <br>
 
   </body>
-
 </html>

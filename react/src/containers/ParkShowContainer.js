@@ -102,17 +102,21 @@ class ParkShowContainer extends Component {
      return(
       <div>
         <div>
-          <h1>{this.state.park.name}</h1>
-          <h5>Type of park: {this.state.park.category}</h5>
-          <h5>Size of park: {this.state.park.size}</h5>
-          <p>Description: {this.state.park.description}</p>
-        </div>
-        <div>
-          <p>{this.state.park.address}</p>
-          <p>{this.state.park.city}, {this.state.park.state} {this.state.park.zip}</p>
-        </div>
-        <div>
-          <img src="{this.state.park.photo_url}" />
+          <h2>{this.state.park.name}</h2>
+          <div class="row">
+              <div class="small-9 push-3 columns">
+                <h4>Description:</h4>
+                <p>{this.state.park.description}</p>
+              </div>
+              <div class="small-3 pull-9 columns">
+                <ul class="side-nav">
+                  <p><img width="460px" height="320px" src={this.state.park.photo_url}/></p>
+                  <p>Address:{this.state.park.address}</p>
+                  <p>City:{this.state.park.city}</p>
+                  <p>State:{this.state.park.state}</p>
+                </ul>
+              </div>
+          </div>
         </div>
         <div>
           <ReviewsIndex
