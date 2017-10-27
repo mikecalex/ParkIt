@@ -1,7 +1,6 @@
 source 'https://rubygems.org/'
 
 gem 'jquery-rails'
-gem 'foundation-rails'
 gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
@@ -14,6 +13,7 @@ gem "fog-aws"
 gem "fog"
 gem "react_on_rails", '~> 7.0', '>= 7.0.4'
 gem "font-awesome-rails"
+gem 'foundation-rails'
 
 group :development do
   gem 'listen', '~> 3.0.5'

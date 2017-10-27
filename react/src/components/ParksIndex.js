@@ -8,6 +8,7 @@ const ParksIndex = props => {
         key={park.id}
         id={park.id}
         name={park.name}
+        photo={park.photo_url}
       />
     )
   })
