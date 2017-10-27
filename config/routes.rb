@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :parks, only: [:index, :show, :create]
       resources :reviews, only: [:index, :show, :create]
       resources :votes
+      resources :users
     end
   end
 

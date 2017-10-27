@@ -6,14 +6,28 @@ class ParksContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      parks: []
+      parks: [],
+      user: {}
     }
     this.addNewPark = this.addNewPark.bind(this)
     this.getParks = this.getParks.bind(this)
+    this.getUser = this.getUser.bind(this)
   }
 
   componentDidMount() {
     this.getParks()
+    this.getUser()
+  }
+
+  getUser() {
+    fetch('api/v1/users', {
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin'
+    })
+      .then(response => response.json())
+      .then(json => {
+        this.setState({ user: json.user });
+      });
   }
 
   getParks() {
@@ -23,8 +37,7 @@ class ParksContainer extends Component {
     })
       .then(response => response.json())
       .then(json => {
-      let currentUser = json.user;
-        this.setState({ parks: json });
+        this.setState({ parks: json.parks });
       });
   }
 

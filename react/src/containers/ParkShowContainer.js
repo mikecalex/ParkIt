@@ -16,11 +16,13 @@ class ParkShowContainer extends Component {
     this.addNewVote = this.addNewVote.bind(this)
     this.getVotes = this.getVotes.bind(this)
     this.getPark = this.getPark.bind(this)
+    this.getUser = this.getUser.bind(this)
   }
 
   componentDidMount() {
     this.getVotes();
     this.getPark();
+    this.getUser();
   }
 
   getPark() {
@@ -31,7 +33,18 @@ class ParkShowContainer extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        this.setState({ park: json })
+        this.setState({ park: json.park })
+      });
+  }
+
+  getUser() {
+    fetch('/api/v1/users', {
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin'
+    })
+      .then(response => response.json())
+      .then(json => {
+        this.setState({ user: json.user });
       });
   }
 
@@ -56,7 +69,6 @@ class ParkShowContainer extends Component {
     })
       .then((response) => response.json())
       .then(json => {
-        console.log(json)
         let newReviewsArray = this.state.reviews.concat(json.review)
         this.setState({ reviews: newReviewsArray })
       })
@@ -71,10 +83,11 @@ class ParkShowContainer extends Component {
     })
       .then(response => response.json())
       .then(json => {
+        console.log(json)
         let newVotes = this.state.votes.concat(json)
         this.setState({ votes: newVotes })
       })
-    // this.getVotes()
+    this.getVotes()
   }
 
   render() {

@@ -5,7 +5,6 @@ class Api::V1::ReviewsController < ApplicationController
 
   def create
     review = Review.new(new_review_params)
-    binding.pry
     if review.save
       render json: { review: review }
     else
