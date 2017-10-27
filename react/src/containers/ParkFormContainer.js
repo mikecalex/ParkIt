@@ -13,8 +13,7 @@ class FormContainer extends Component {
       parkCategory: '',
       parkDescription: '',
       parkPhotoUrl: '',
-      parkSize: '',
-      userId: 2
+      parkSize: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleClearForm = this.handleClearForm.bind(this)
@@ -52,11 +51,11 @@ class FormContainer extends Component {
       category: this.state.parkCategory,
       description: this.state.parkDescription,
       photo_url: this.state.parkPhotoUrl,
-      size: this.state.size,
-      user_id: this.state.userId
+      size: this.state.parkSize,
+      user_id: this.props.user.id
     }
     this.props.handleSubmit(formPayload)
-    // this.handleClearForm()
+    this.handleClearForm()
   }
 
   render() {

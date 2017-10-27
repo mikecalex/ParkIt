@@ -11,19 +11,33 @@ class ParksContainer extends Component {
     }
     this.addNewPark = this.addNewPark.bind(this)
     this.getParks = this.getParks.bind(this)
+    this.getUser = this.getUser.bind(this)
   }
 
   componentDidMount() {
     this.getParks()
+    this.getUser()
+  }
+
+  getUser() {
+    fetch('api/v1/users', {
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin'
+    })
+      .then(response => response.json())
+      .then(json => {
+        this.setState({ user: json.user });
+      });
   }
 
   getParks() {
-    fetch('api/v1/parks')
+    fetch('api/v1/parks', {
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin'
+    })
       .then(response => response.json())
       .then(json => {
-        let allParks = json.parks
-        let currentUser = json.user
-        this.setState({ parks: allParks, user: currentUser })
+        this.setState({ parks: json.parks });
       });
   }
 
@@ -31,7 +45,8 @@ class ParksContainer extends Component {
     fetch('api/v1/parks', {
       method: 'POST',
       body: JSON.stringify(formPayload),
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin'
     })
       .then(response => response.json())
       .then(json => {
@@ -44,6 +59,7 @@ class ParksContainer extends Component {
     let handleSubmit = (formPayload) => {
       this.addNewPark(formPayload)
     }
+
     return(
       <div>
         <h1>
