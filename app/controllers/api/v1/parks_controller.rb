@@ -2,19 +2,13 @@ class Api::V1::ParksController < ApplicationController
   # serialization_scope :current_user
 
   def index
-<<<<<<< HEAD
-=======
     # render json: { parks: Park.all, user: current_user }
->>>>>>> b36a08ddd692262d429a0e74badca584e03fe502
     render json: Park.all
   end
 
   def show
-<<<<<<< HEAD
-=======
     # park = Park.find(params[:id])
     # render json: { park: park, reviews: park.reviews, user: current_user }
->>>>>>> b36a08ddd692262d429a0e74badca584e03fe502
     render json: Park.find(params[:id]), serializer: ParkShowSerializer
   end
 
