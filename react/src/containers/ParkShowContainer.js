@@ -10,12 +10,16 @@ class ParkShowContainer extends Component {
       reviews: [],
       user: {}
     }
+    this.addNewReview = this.addNewReview.bind(this)
   }
 
   componentDidMount() {
     let parkId = this.props.match.params.id
+    console.log(this.props)
     fetch(`/api/v1/parks/${parkId}`, {
-      headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin'})
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin'})
       .then(response => response.json())
       .then(json => {
         // console.log(json)
@@ -25,13 +29,13 @@ class ParkShowContainer extends Component {
 
   addNewReview(formPayload) {
     let parkId = this.props.match.params.id
-    fetch(`/api/v1/parks/${parkId}`, {
+    fetch("/api/v1/reviews", {
       method: 'POST',
-      body: JSON.stringify(formPayload),
+      credentials: 'same-origin',
       headers: { 'Content-Type': 'application/json' },
-      credentials: 'same-origin'
+      body: JSON.stringify(formPayload)
     })
-      .then(response => console.log(response))
+      .then((response) => response.json())
       .then(json => {
         console.log(json)
         let newReviewsArray = this.state.reviews.concat(json.review)
