@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReviewsIndex from './ReviewsIndex';
+import ReviewFormContainer from './ReviewFormContainer'
 
 class ParkShowContainer extends Component {
   constructor(props) {
@@ -8,8 +9,10 @@ class ParkShowContainer extends Component {
       park: {
         reviews: []
       },
-      votes: []
+      votes: [],
+      user: {}
     }
+    this.addNewReview = this.addNewReview.bind(this)
     this.addNewVote = this.addNewVote.bind(this)
     this.getVotes = this.getVotes.bind(this)
     this.getPark = this.getPark.bind(this)
@@ -23,6 +26,7 @@ class ParkShowContainer extends Component {
   getPark() {
     let parkId = this.props.match.params.id
     fetch(`/api/v1/parks/${parkId}`, {
+      headers: { 'Content-Type': 'application/json' },
       credentials: 'same-origin'
     })
       .then(response => response.json())
@@ -42,6 +46,22 @@ class ParkShowContainer extends Component {
     });
   }
 
+  addNewReview(formPayload) {
+    let parkId = this.props.match.params.id
+    fetch("/api/v1/reviews", {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formPayload)
+    })
+      .then((response) => response.json())
+      .then(json => {
+        console.log(json)
+        let newReviewsArray = this.state.reviews.concat(json.review)
+        this.setState({ reviews: newReviewsArray })
+      })
+  }
+
   addNewVote(votePayload) {
     fetch('/api/v1/votes', {
       method: 'POST',
@@ -58,7 +78,10 @@ class ParkShowContainer extends Component {
   }
 
   render() {
-    console.log(this.state.votes)
+    let handleSubmit = (formPayload) => {
+      this.addNewReview(formPayload)
+    }
+
     let handleClick = (votePayload) => {
       this.addNewVote(votePayload)
     }
@@ -82,6 +105,13 @@ class ParkShowContainer extends Component {
           <ReviewsIndex
             reviews={this.state.park.reviews}
             handleClick={handleClick}
+          />
+        </div>
+        <div>
+          <ReviewFormContainer
+            user={this.state.user}
+            park={this.state.park}
+            handleSubmit={handleSubmit}
           />
         </div>
       </div>

@@ -18,6 +18,7 @@ class ParksContainer extends Component {
 
   getParks() {
     fetch('api/v1/parks', {
+      headers: { 'Content-Type': 'application/json' },
       credentials: 'same-origin'
     })
       .then(response => response.json())
