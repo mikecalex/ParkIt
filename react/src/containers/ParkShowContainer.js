@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReviewsIndex from './ReviewsIndex';
 import ReviewFormContainer from './ReviewFormContainer'
 import { Link } from 'react-router-dom';
+import SweetAlert from 'sweetalert-react';
 
 class ParkShowContainer extends Component {
   constructor(props) {
@@ -92,6 +93,7 @@ class ParkShowContainer extends Component {
   }
 
   render() {
+    
     let handleSubmit = (formPayload) => {
       this.addNewReview(formPayload)
     }
@@ -121,6 +123,7 @@ class ParkShowContainer extends Component {
         </div>
         <div>
           <ReviewFormContainer
+            currentUser={this.props.currentUser}
             user={this.state.user}
             park={this.state.park}
             handleSubmit={handleSubmit}
