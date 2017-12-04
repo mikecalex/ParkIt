@@ -1,15 +1,37 @@
 import React, { Component } from 'react'
 import ReviewTextInputField from '../components/ReviewTextInputField'
+import SweetAlert from 'sweetalert-react';
 
 class ReviewFormContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
       rating: '',
-      body: ''
+      body: '',
+      isOpen: false,
+      alert: false
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.hideAlert = this.hideAlert.bind(this)
+  }
+
+  hideAlert() {
+    this.setState({
+      alert: !this.state.alert
+    });
+  }
+
+  toggleModal() {
+    if (!this.props.currentUser) {
+      this.setState({
+        alert: !this.state.alert
+      });
+      } else {
+      this.setState({
+        isOpen: !this.state.isOpen
+      });
+    }
   }
 
   handleChange(event) {
@@ -31,7 +53,13 @@ class ReviewFormContainer extends Component {
 
   render() {
     return(
+
       <form onSubmit={this.handleSubmit}>
+        <SweetAlert
+          show={this.state.alert}
+          title="You must sign in first!"
+          onConfirm={this.hideAlert}
+        />
         <ReviewTextInputField
           label='Rating'
           value={this.state.rating}
@@ -44,7 +72,7 @@ class ReviewFormContainer extends Component {
           name='body'
           handleChange={this.handleChange}
         />
-        <input className="form-button" type='submit' value='Submit'/>
+        <input className="form-button" type='submit' value='Submit' onClick={this.toggleModal}/>
       </form>
     )
   }
