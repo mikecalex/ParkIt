@@ -113,9 +113,7 @@
     display: block;
     background-color: #305e4a;
     padding-top: 15px;
-
     }
-
   }
 
 @media screen and (max-width: 600px) {
@@ -162,10 +160,7 @@
   position: absolute;
   width: 100%;
   }
-
-
 }
-
 
 .top-bar-section ul li {
     background: #305e4a;
@@ -186,10 +181,6 @@ ul.right {
   margin-right: 20px;
   max-width: 50%;
   display: inline-flex;
-}
-
-li {
-
 }
 
 #footer {
@@ -279,4 +270,41 @@ input.form-button {
 input.form-button:hover {
   background-color: #555555;
   color: white;
+}
+
+p {
+  margin: 0px;
+}
+
+input.input-field {
+  max-width: 300px;
+  min-height: 50px;
+}
+
+div.show-page {
+  padding-left: 20px;
+}
+
+div.review-title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid #DAE1E9;
+  margin-top: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3.new-park {
+  border-top: 1px solid #DAE1E9;
+  padding-top: 10px;
+}
+
+h1.parks-title {
+  min-width: 100%
+}
+
+div.row.column.text-center {
+  min-width: 100%;
 }

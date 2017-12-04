@@ -8,6 +8,7 @@ const ReviewTextInputField = props => {
         value={props.value}
         name={props.name}
         onChange={props.handleChange}
+        className='input-field'
       />
     </label>
   )
