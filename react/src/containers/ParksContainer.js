@@ -67,7 +67,7 @@ class ParksContainer extends Component {
           <img width="100%" className="hero-image" src="https://scontent.fbed1-2.fna.fbcdn.net/v/t1.0-9/22853052_10105640791126263_6186633322118658729_n.jpg?oh=65c315aa3fce121f51d13de3cdef4f35&oe=5A71BCD4"/>
         </div>
         <div className="row column text-center">
-          <h1>Parks</h1>
+          <h1 className='parks-title'>Parks</h1>
 
         </div>
         <ParksIndex
@@ -75,6 +75,8 @@ class ParksContainer extends Component {
         />
         <div className="row small-up-2 large-up-2">
           <div className="column">
+
+        <h3 className='new-park'>Add a New Park!</h3>
         <ParkFormContainer
           user={this.state.user}
           handleSubmit={handleSubmit}
