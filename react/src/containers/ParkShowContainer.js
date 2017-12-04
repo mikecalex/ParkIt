@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReviewsIndex from './ReviewsIndex';
 import ReviewFormContainer from './ReviewFormContainer'
+import { Link } from 'react-router-dom';
 
 class ParkShowContainer extends Component {
   constructor(props) {
@@ -130,6 +131,10 @@ class ParkShowContainer extends Component {
             park={this.state.park}
             handleSubmit={handleSubmit}
           />
+        </div>
+        <div>
+          <Link className="back-button" to='/'>Back</Link>
+          { this.props.children }
         </div>
       </div>
     )

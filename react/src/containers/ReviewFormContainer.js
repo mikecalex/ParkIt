@@ -44,7 +44,7 @@ class ReviewFormContainer extends Component {
           name='body'
           handleChange={this.handleChange}
         />
-        <input type='submit' value='Submit'/>
+        <input className="form-button" type='submit' value='Submit'/>
       </form>
     )
   }
