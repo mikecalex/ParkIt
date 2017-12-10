@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReviewTextInputField from '../components/ReviewTextInputField'
-import SweetAlert from 'sweetalert-react';
+import SweetAlert from 'react-bootstrap-sweetalert'
 
 class ReviewFormContainer extends Component {
   constructor(props) {
@@ -22,18 +22,6 @@ class ReviewFormContainer extends Component {
     });
   }
 
-  toggleModal() {
-    if (!this.props.currentUser) {
-      this.setState({
-        alert: !this.state.alert
-      });
-      } else {
-      this.setState({
-        isOpen: !this.state.isOpen
-      });
-    }
-  }
-
   handleChange(event) {
     let value = event.target.value
     let name = event.target.name
@@ -42,38 +30,49 @@ class ReviewFormContainer extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    let formPayload = {
-      rating: parseInt(this.state.rating),
-      body: this.state.body,
-      park_id: this.props.park.id,
-      user_id: this.props.user.id
+    if (!this.props.currentUser) {
+      console.log(yo)
+      this.setState({
+        alert: !this.state.alert
+      });
+    } else {
+      let formPayload = {
+        rating: parseInt(this.state.rating),
+        body: this.state.body,
+        park_id: this.props.park.id,
+        user_id: this.props.user.id
+      }
+      this.props.handleSubmit(formPayload)
     }
-    this.props.handleSubmit(formPayload)
   }
 
   render() {
+    // debugger
     return(
-
-      <form onSubmit={this.handleSubmit}>
+      <div className='review-form'>
         <SweetAlert
           show={this.state.alert}
           title="You must sign in first!"
           onConfirm={this.hideAlert}
         />
-        <ReviewTextInputField
-          label='Rating'
-          value={this.state.rating}
-          name='rating'
-          handleChange={this.handleChange}
-        />
-        <ReviewTextInputField
-          label='Body'
-          value={this.state.body}
-          name='body'
-          handleChange={this.handleChange}
-        />
-        <input className="form-button" type='submit' value='Submit' onClick={this.toggleModal}/>
-      </form>
+
+        <form onSubmit={this.handleSubmit}>
+
+          <ReviewTextInputField
+            label='Rating'
+            value={this.state.rating}
+            name='rating'
+            handleChange={this.handleChange}
+          />
+          <ReviewTextInputField
+            label='Body'
+            value={this.state.body}
+            name='body'
+            handleChange={this.handleChange}
+          />
+          <input className="form-button" type='submit' value='Submit' onClick={this.toggleModal}/>
+        </form>
+      </div>
     )
   }
 }

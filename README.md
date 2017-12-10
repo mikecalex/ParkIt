@@ -1,27 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This was made for a group project at Launch Academy. The app uses a Rails back end with a React front end. 
 
 ![Build Status](https://codeship.com/projects/8e06d9a0-94c5-0135-ea79-5e19c06be32c/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/mikecalex/ParkIt.png)
