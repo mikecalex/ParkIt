@@ -30,12 +30,13 @@ class App extends Component {
    .then(response => response.json())
    .then(json => {
      this.setState({
-       currentUser: json.user
+       currentUser: json.current_user
      })
    })
  }
 
    render() {
+    
     return(
       <Switch>
         <Route exact path="/" render={props => (

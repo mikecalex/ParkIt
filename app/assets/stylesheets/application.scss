@@ -282,7 +282,7 @@ input.input-field {
 }
 
 div.show-page {
-  padding-left: 20px;
+  padding: 0px 20px;
 }
 
 div.review-title {
@@ -294,6 +294,7 @@ div.review-title {
 
 h2 {
   text-align: center;
+  font-size: 2rem
 }
 
 h3.new-park {
@@ -307,4 +308,16 @@ h1.parks-title {
 
 div.row.column.text-center {
   min-width: 100%;
+}
+div.show-page-tile {
+  margin: 20px;
+}
+
+img.show-image {
+  width: -webkit-fill-available
+}
+
+div.sweet-alert {
+  margin-top: 0px;
+  max-height: 200px;
 }

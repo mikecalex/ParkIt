@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ReviewsIndex from './ReviewsIndex';
 import ReviewFormContainer from './ReviewFormContainer'
 import { Link } from 'react-router-dom';
-import SweetAlert from 'sweetalert-react';
+import SweetAlert from 'react-bootstrap-sweetalert'
 
 class ParkShowContainer extends Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class ParkShowContainer extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        this.setState({ user: json.user });
+        this.setState({ user: json.current_user });
       });
   }
 
@@ -62,18 +62,18 @@ class ParkShowContainer extends Component {
   }
 
   addNewReview(formPayload) {
-    let parkId = this.props.match.params.id
+    debugger
     fetch("/api/v1/reviews", {
       method: 'POST',
       credentials: 'same-origin',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formPayload)
     })
-      .then((response) => response.json())
-      .then(json => {
-        let newReviewsArray = this.state.reviews.concat(json.review)
-        this.setState({ reviews: newReviewsArray })
-      })
+      .then((response) => console.log(response.json))
+      // .then(json => {
+      //   let newReviewsArray = this.state.reviews.concat(json.review)
+      //   this.setState({ reviews: newReviewsArray })
+      // })
   }
 
   addNewVote(votePayload) {
@@ -93,7 +93,7 @@ class ParkShowContainer extends Component {
   }
 
   render() {
-    
+
     let handleSubmit = (formPayload) => {
       this.addNewReview(formPayload)
     }
@@ -101,24 +101,21 @@ class ParkShowContainer extends Component {
     let handleClick = (votePayload) => {
       this.addNewVote(votePayload)
     }
-
+    // debugger
      return(
       <div className='show-page'>
         <div>
           <h2>{this.state.park.name}</h2>
-          <div class="row">
-              <div class="small-9 push-3 columns">
+          <div className="show-page-tile">
+            <div className="side-nav">
+              <p><img className='show-image' src={this.state.park.photo_url}/></p>
+              <br></br>
+              <h4>{this.state.park.description}</h4>
+              <p>Address: {this.state.park.address}</p>
+              <p>City: {this.state.park.city}</p>
+              <p>State: {this.state.park.state}</p>
+            </div>
 
-              </div>
-              <div class="small-3 pull-9 columns">
-                <ul class="side-nav">
-                  <p><img width="460px" height="320px" src={this.state.park.photo_url}/></p>
-                  <h4>{this.state.park.description}</h4>
-                  <p>Address: {this.state.park.address}</p>
-                  <p>City: {this.state.park.city}</p>
-                  <p>State: {this.state.park.state}</p>
-                </ul>
-              </div>
           </div>
         </div>
         <div>
